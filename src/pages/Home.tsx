@@ -26,6 +26,17 @@ export const Home = () => {
       setSecond("");
     }
   };
+  const del = (type: string, value: string) => {
+    if (type === "action" && value === "DEL") {
+      if (second.length > 0) {
+        setSecond((current) => current.slice(0, -1));
+      } else if (operator.length > 0) {
+        setOperator("");
+      } else {
+        setFirst((current) => current.slice(0, -1));
+      }
+    }
+  };
 
   return (
     <main
@@ -61,6 +72,7 @@ export const Home = () => {
                   className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold text-nowrap"
                   onClick={() => {
                     display(button.value, button.type);
+                    del(button.type, button.value);
                   }}
                 >
                   {button.value}
@@ -71,7 +83,9 @@ export const Home = () => {
               <div className="col-6" key={item.key}>
                 <button
                   className="w-100 btn btn-outline-dark p-3 fw-bold"
-                  onClick={() => reset(item.type, item.value)}
+                  onClick={() => {
+                    reset(item.type, item.value);
+                  }}
                 >
                   {item.value}
                 </button>
