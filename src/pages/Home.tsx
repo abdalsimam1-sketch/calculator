@@ -28,7 +28,7 @@ export const Home = () => {
           <div className="row g-3">
             {keys.map((button) => (
               <div className="col-3">
-                <button className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold">
+                <button className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold text-nowrap">
                   {button.value}
                 </button>
               </div>
