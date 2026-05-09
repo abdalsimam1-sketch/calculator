@@ -19,6 +19,13 @@ export const Home = () => {
       setOperator(value);
     }
   };
+  const reset = (type: string, value: string) => {
+    if (type === "action" && value === "RESET") {
+      setFirst("");
+      setOperator("");
+      setSecond("");
+    }
+  };
 
   return (
     <main
@@ -62,7 +69,10 @@ export const Home = () => {
             ))}
             {bottomKeys.map((item) => (
               <div className="col-6" key={item.key}>
-                <button className="w-100 btn btn-outline-dark p-3 fw-bold">
+                <button
+                  className="w-100 btn btn-outline-dark p-3 fw-bold"
+                  onClick={() => reset(item.type, item.value)}
+                >
                   {item.value}
                 </button>
               </div>
