@@ -1,3 +1,6 @@
+import { keys } from "../data/keysData";
+import { bottomKeys } from "../data/keysData";
+
 export const Home = () => {
   return (
     <main
@@ -21,7 +24,24 @@ export const Home = () => {
         <section className="input-section card p-3 d-flex">
           <h1 className="align-self-end">399,983.90</h1>
         </section>
-        <section></section>
+        <section className="buttons-section card p-4">
+          <div className="row g-3">
+            {keys.map((button) => (
+              <div className="col-3">
+                <button className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold">
+                  {button.value}
+                </button>
+              </div>
+            ))}
+            {bottomKeys.map((item) => (
+              <div className="col-6">
+                <button className="w-100 btn btn-outline-dark p-3 fw-bold">
+                  {item.value}
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );

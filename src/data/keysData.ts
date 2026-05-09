@@ -90,7 +90,7 @@ export const keys: Key[] = [
 ];
 export const bottomKeys: Key[] = [
   {
-    key: "reset",
+    key: "RESET",
     value: "RESET",
     type: "action",
   },
