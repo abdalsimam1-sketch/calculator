@@ -1,7 +1,25 @@
+import { useState } from "react";
 import { keys } from "../data/keysData";
 import { bottomKeys } from "../data/keysData";
 
 export const Home = () => {
+  const [first, setFirst] = useState("");
+  const [operator, setOperator] = useState("");
+  const [second, setSecond] = useState("");
+  const display = (value: string, type: string) => {
+    if (type === "number") {
+      if (operator === "") {
+        setFirst((current) => current + value);
+      }
+      if (operator.length > 0) {
+        setSecond((current) => current + value);
+      }
+    }
+    if (type === "operator") {
+      setOperator(value);
+    }
+  };
+
   return (
     <main
       className=" d-flex justify-content-center align-items-center"
@@ -22,19 +40,28 @@ export const Home = () => {
           </div>
         </section>
         <section className="input-section card p-3 d-flex">
-          <h1 className="align-self-end">399,983.90</h1>
+          <h1 className="align-self-end">
+            {first}
+            {operator}
+            {second}
+          </h1>
         </section>
         <section className="buttons-section card p-4">
           <div className="row g-3">
             {keys.map((button) => (
-              <div className="col-3">
-                <button className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold text-nowrap">
+              <div className="col-3" key={button.key}>
+                <button
+                  className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold text-nowrap"
+                  onClick={() => {
+                    display(button.value, button.type);
+                  }}
+                >
                   {button.value}
                 </button>
               </div>
             ))}
             {bottomKeys.map((item) => (
-              <div className="col-6">
+              <div className="col-6" key={item.key}>
                 <button className="w-100 btn btn-outline-dark p-3 fw-bold">
                   {item.value}
                 </button>
