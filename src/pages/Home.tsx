@@ -81,7 +81,7 @@ export const Home = () => {
         </section>
         <section className="input-section card p-3 d-flex">
           <h1 className="align-self-end">
-            {first}
+            {first.toLocaleString()}
             {operator}
             {second}
           </h1>
@@ -91,7 +91,7 @@ export const Home = () => {
             {keys.map((button) => (
               <div className="col-3" key={button.key}>
                 <button
-                  className="btn btn-outline-dark mx-auto w-100 p-3 fw-bold text-nowrap"
+                  className="btn  mx-auto w-100 p-3 fw-bold text-nowrap shadow"
                   onClick={() => {
                     display(button.value, button.type);
                     del(button.type, button.value);
@@ -104,12 +104,14 @@ export const Home = () => {
             {bottomKeys.map((item) => (
               <div className="col-6" key={item.key}>
                 <button
-                  className="w-100 btn btn-outline-dark p-3 fw-bold"
+                  className="w-100 btn  p-3 fw-bold shadow"
                   onClick={() => {
                     reset(item.type, item.value);
-                    if (item.type === "action" && item.value === "=") {
-                      const answer = calculate(first, operator, second);
-                      setFirst(String(answer));
+                    if (first.length > 0 && operator.length > 0) {
+                      if (item.type === "action" && item.value === "=") {
+                        const answer = calculate(first, operator, second);
+                        setFirst(String(answer));
+                      }
                     }
                   }}
                 >
