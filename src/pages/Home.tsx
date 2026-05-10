@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { keys } from "../data/keysData";
-import { bottomKeys } from "../data/keysData";
-
+import { keys, bottomKeys } from "../data/keysData";
+import type { ButtonTypes } from "../data/keysData";
 export const Home = () => {
   const [first, setFirst] = useState("");
   const [operator, setOperator] = useState("");
   const [second, setSecond] = useState("");
   const [result, setResult] = useState("");
-  const display = (value: string, type: string) => {
+  const display = (value: string, type: ButtonTypes) => {
     if (type === "number") {
       if (operator === "") {
         setFirst((current) => current + value);
@@ -20,7 +19,7 @@ export const Home = () => {
       setOperator(value);
     }
   };
-  const reset = (type: string, value: string) => {
+  const reset = (type: ButtonTypes, value: string) => {
     if (type === "action" && value === "RESET") {
       setFirst("");
       setOperator("");
@@ -28,7 +27,7 @@ export const Home = () => {
       setResult("");
     }
   };
-  const del = (type: string, value: string) => {
+  const del = (type: ButtonTypes, value: string) => {
     if (type === "action" && value === "DEL") {
       if (second.length > 0) {
         setSecond((current) => current.slice(0, -1));
