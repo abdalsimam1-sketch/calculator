@@ -1,4 +1,37 @@
-.container.card {
+.cal-container {
   max-width: 600px;
   width: 90%;
+}
+
+/* Themes */
+.theme-1 {
+  --page-bg: #3b4663;
+  --display-section: #182033;
+  --buttons-area-bg: #252d45;
+  --delete-reset-bg: #f5fbff;
+  --font-color: #fcfffd;
+  --button-font: #494f5c;
+  --theme-equals: #f76e5c;
+  --button-bg: #e6dfd8;
+}
+.theme-2 {
+  --page-bg: #e6e6e6;
+  --display-section: #ededed;
+  --buttons-area-bg: #d4cdcd;
+  --delete-reset-bg: #62b5bd;
+  --font-color: #383830;
+  --button-font: #36362b;
+  --theme-equals: #f76e5c;
+  --button-bg: #e5e4e0;
+}
+
+.theme-3 {
+  --page-bg: #160629;
+  --display-section: #1e0836;
+  --buttons-area-bg: #1e0836;
+  --delete-reset-bg: #8431b0;
+  --font-color: #f9e852;
+  --button-font: #f9e852;
+  --theme-equals: #8ffff9;
+  --button-bg: #331b4d;
 }
