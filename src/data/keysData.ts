@@ -1,25 +1,25 @@
-type ButtonTypes = "action" | "operator" | "number";
+export type ButtonTypes = "action" | "operator" | "number";
 
 interface Key {
   key: string;
-  value: number | string;
+  value: string;
   type: ButtonTypes;
 }
 
 export const keys: Key[] = [
   {
     key: "7",
-    value: 7,
+    value: "7",
     type: "number",
   },
   {
     key: "8",
-    value: 8,
+    value: "8",
     type: "number",
   },
   {
     key: "9",
-    value: 9,
+    value: "9",
     type: "number",
   },
   {
@@ -29,17 +29,17 @@ export const keys: Key[] = [
   },
   {
     key: "4",
-    value: 4,
+    value: "4",
     type: "number",
   },
   {
     key: "5",
-    value: 5,
+    value: "5",
     type: "number",
   },
   {
     key: "6",
-    value: 6,
+    value: "6",
     type: "number",
   },
   {
@@ -49,17 +49,17 @@ export const keys: Key[] = [
   },
   {
     key: "1",
-    value: 1,
+    value: "1",
     type: "number",
   },
   {
     key: "2",
-    value: 2,
+    value: "2",
     type: "number",
   },
   {
     key: "3",
-    value: 3,
+    value: "3",
     type: "number",
   },
   {
@@ -74,7 +74,7 @@ export const keys: Key[] = [
   },
   {
     key: "0",
-    value: 0,
+    value: "0",
     type: "number",
   },
   {
