@@ -6,6 +6,7 @@ export const Home = () => {
   const [first, setFirst] = useState("");
   const [operator, setOperator] = useState("");
   const [second, setSecond] = useState("");
+  const [result, setResult] = useState("");
   const display = (value: string, type: string) => {
     if (type === "number") {
       if (operator === "") {
@@ -24,6 +25,7 @@ export const Home = () => {
       setFirst("");
       setOperator("");
       setSecond("");
+      setResult("");
     }
   };
   const del = (type: string, value: string) => {
@@ -36,6 +38,26 @@ export const Home = () => {
         setFirst((current) => current.slice(0, -1));
       }
     }
+  };
+  const calculate = (first: string, operator: string, second: string) => {
+    setFirst("");
+    setOperator("");
+    setSecond("");
+    let answer;
+    if (operator == "+") {
+      answer = Number(first) + Number(second);
+    }
+    if (operator == "/") {
+      answer = Number(first) / Number(second);
+    }
+    if (operator == "x") {
+      answer = Number(first) * Number(second);
+    }
+    if (operator == "-") {
+      answer = Number(first) - Number(second);
+    }
+    setResult(String(answer));
+    return answer;
   };
 
   return (
@@ -85,6 +107,10 @@ export const Home = () => {
                   className="w-100 btn btn-outline-dark p-3 fw-bold"
                   onClick={() => {
                     reset(item.type, item.value);
+                    if (item.type === "action" && item.value === "=") {
+                      const answer = calculate(first, operator, second);
+                      setFirst(String(answer));
+                    }
                   }}
                 >
                   {item.value}
