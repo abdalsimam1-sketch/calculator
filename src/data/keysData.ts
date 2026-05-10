@@ -1,4 +1,4 @@
-type ButtonTypes = "action" | "operator" | "number";
+export type ButtonTypes = "action" | "operator" | "number";
 
 interface Key {
   key: string;
