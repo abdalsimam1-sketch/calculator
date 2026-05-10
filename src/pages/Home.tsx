@@ -83,6 +83,7 @@ export const Home = () => {
             {first.toLocaleString()}
             {operator}
             {second}
+            {result}
           </h1>
         </section>
         <section className="buttons-section card p-4">
@@ -110,6 +111,7 @@ export const Home = () => {
                       if (item.type === "action" && item.value === "=") {
                         const answer = calculate(first, operator, second);
                         setFirst(String(answer));
+                        setResult("");
                       }
                     }
                   }}
