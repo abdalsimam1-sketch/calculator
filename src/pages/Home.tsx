@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { keys, bottomKeys } from "../data/keysData";
 import type { ButtonTypes } from "../data/keysData";
+type themes = 1 | 2 | 3;
 export const Home = () => {
   const [first, setFirst] = useState("");
   const [operator, setOperator] = useState("");
   const [second, setSecond] = useState("");
   const [result, setResult] = useState("");
+  const [theme, setTheme] = useState<themes>(1);
   const display = (value: string, type: ButtonTypes) => {
     if (type === "number") {
       if (operator === "") {
@@ -61,37 +63,46 @@ export const Home = () => {
 
   return (
     <main
-      className=" d-flex justify-content-center align-items-center"
+      className={`d-flex justify-content-center align-items-center theme-${theme}`}
       style={{ minHeight: "100vh" }}
     >
-      <div className="container card my-auto p-3 d-flex flex-column gap-4">
-        <section className="heading-section d-flex justify-content-between align-items-center">
+      <div className=" my-auto p-3 d-flex flex-column gap-4 cal-container">
+        <section className="heading-section d-flex justify-content-between align-items-center ">
           <h3>calc</h3>
           <div className="d-flex gap-2 align-items-center">
             <span className="fw-bold" style={{ fontSize: "10px" }}>
               THEMES
             </span>
             <span>
-              <i className="btn bi bi-1-square-fill fs-3 p-0"></i>
-              <i className="btn bi bi-2-square-fill fs-3 p-0"></i>
-              <i className="btn bi bi-3-square-fill fs-3 p-0"></i>
+              <i
+                className={`btn bi bi-1-square-fill fs-3 p-0`}
+                onClick={() => setTheme(1)}
+              ></i>
+              <i
+                className={`btn bi  ${theme} bi-2-square-fill fs-3 p-0`}
+                onClick={() => setTheme(2)}
+              ></i>
+              <i
+                className={`btn bi bi-3-square-fill fs-3 p-0`}
+                onClick={() => setTheme(3)}
+              ></i>
             </span>
           </div>
         </section>
-        <section className="input-section card p-3 d-flex">
-          <h1 className="align-self-end">
+        <section className="input-section rounded p-3 d-flex">
+          <h1 className="ms-auto">
             {first.toLocaleString()}
             {operator}
             {second}
             {result}
           </h1>
         </section>
-        <section className="buttons-section card p-4">
+        <section className="buttons-section  rounded p-4">
           <div className="row g-3">
             {keys.map((button) => (
               <div className="col-3" key={button.key}>
                 <button
-                  className="btn  mx-auto w-100 p-3 fw-bold text-nowrap shadow"
+                  className={`btn  mx-auto w-100 p-3 fw-bold text-nowrap shadow button btn-${button.value.toLowerCase()}`}
                   onClick={() => {
                     display(button.value, button.type);
                     del(button.type, button.value);
@@ -104,7 +115,7 @@ export const Home = () => {
             {bottomKeys.map((item) => (
               <div className="col-6" key={item.key}>
                 <button
-                  className="w-100 btn  p-3 fw-bold shadow"
+                  className={`w-100 btn p-3 fw-bold shadow  btn-${item.value.toLowerCase()} ${item.value === "RESET" && theme === 1 ? "text-dark" : "text-light"} btn-${item.value === "=" ? "equals" : ""}`}
                   onClick={() => {
                     reset(item.type, item.value);
                     if (first.length > 0 && operator.length > 0) {
