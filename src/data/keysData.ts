@@ -14,7 +14,7 @@ export const keys: Key[] = [
   },
   {
     key: "8",
-    value: " 8",
+    value: "8",
     type: "number",
   },
   {
@@ -34,7 +34,7 @@ export const keys: Key[] = [
   },
   {
     key: "5",
-    value: " 5",
+    value: "5",
     type: "number",
   },
   {
@@ -49,7 +49,7 @@ export const keys: Key[] = [
   },
   {
     key: "1",
-    value: " 1",
+    value: "1",
     type: "number",
   },
   {
@@ -70,7 +70,7 @@ export const keys: Key[] = [
   {
     key: ".",
     value: ".",
-    type: "operator",
+    type: "number",
   },
   {
     key: "0",
