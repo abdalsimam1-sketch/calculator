@@ -35,3 +35,29 @@
   --theme-equals: #8ffff9;
   --button-bg: #331b4d;
 }
+
+main {
+  background-color: var(--page-bg);
+}
+.heading-section {
+  color: var(--font-color);
+}
+.input-section {
+  background-color: var(--display-section);
+  color: var(--font-color);
+}
+.buttons-section {
+  background-color: var(--buttons-area-bg);
+}
+.button.btn,
+.button.btn:hover {
+  background-color: var(--button-bg);
+  color: var(--button-font);
+}
+.btn-del,
+.btn-reset {
+  background-color: var(--delete-reset-bg) !important;
+}
+.btn-equals {
+  background-color: var(--theme-equals) !important;
+}
